@@ -1,5 +1,9 @@
 <template>
   <div id="secure" class="container">
+    <NotificationPopUp
+      ref="NotificationPopUp"
+      v-bind:modalData="modalData"
+    ></NotificationPopUp>
     <div class="infomation">
       <h1>City : {{ weatherByCity.name }}</h1>
       <h1>Weather : {{ weatherByCity.weather[0].description }}</h1>
@@ -10,15 +14,31 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import NotificationPopUp from '../components/NotificationPopUp'
 
 export default {
   name: 'Weather',
   computed: {
     ...mapGetters(['weatherByCity'])
   },
+  components: {
+    NotificationPopUp
+  },
+  data () {
+    return {
+      modal: false,
+      modalData: {
+        title: '',
+        content: ''
+      }
+    }
+  },
   mounted () {
     if (this.weatherByCity.main.feels_like === '') {
-      alert('Please enter a location')
+      this.modalData.title = 'hello'
+      this.modalData.content = 'world'
+      this.$refs.NotificationPopUp.showModal()
+
       this.$router.push('/search')
     }
   }

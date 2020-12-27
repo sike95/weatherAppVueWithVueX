@@ -1,21 +1,25 @@
-
 <template>
   <div id="app">
-    <div  v-if="authenticated">
+    <div v-if="authenticated">
       <h1>Welcome to our weather app !</h1>
-      <hr>
+      <hr />
       <router-link to="/home" class="btn btn-success">
         <a>Home</a>
       </router-link>
       <router-link to="/search" class="btn btn-success">
         <a>Search</a>
       </router-link>
-      <hr>
-      <div id="nav">
+      <hr />
+      <div id="nav"></div>
+      <router-link
+        v-if="authenticated"
+        to="/login"
+        v-on:click.native="logout()"
+        replace
+        >Logout</router-link
+      >
     </div>
-      <router-link v-if="authenticated" to="/login" v-on:click.native="logout()" replace>Logout</router-link>
-    </div>
-    <router-view @authenticated="setAuthenticated"/>
+    <router-view @authenticated="setAuthenticated" />
     <!-- <router-view></router-view> -->
   </div>
 </template>
@@ -50,7 +54,7 @@ export default {
 
 <style>
 #app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
