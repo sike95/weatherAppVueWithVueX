@@ -26,7 +26,7 @@ export default {
           this.input.password === this.$parent.mockAccount.password
         ) {
           this.$emit('authenticated', true)
-          this.$router.replace({ name: 'secure' })
+          this.$router.push('/search')
         } else {
           console.log('The username and / or password is incorrect')
         }
