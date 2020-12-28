@@ -79,7 +79,7 @@ export default {
           .catch(error => {
             this.$error({
               title: 'Invalid country/city combination',
-              content: 'Error trying to fetch weather please try again!'
+              content: 'Error trying to fetch weather data please try again!'
             })
             console.log(error)
           })
