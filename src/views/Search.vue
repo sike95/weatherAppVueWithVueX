@@ -1,4 +1,5 @@
 <template>
+  <div>
     <a-form
       :form="form"
       :label-col="{ span: 6 }"
@@ -14,11 +15,15 @@
         />
       </a-form-item>
 
-            <a-form-item label="Country Code">
+      <a-form-item label="Country Code">
         <a-input
           v-decorator="[
             'code',
-            { rules: [{ required: true, message: 'Please input your country code!' }] }
+            {
+              rules: [
+                { required: true, message: 'Please input your country code!' }
+              ]
+            }
           ]"
         />
       </a-form-item>
@@ -28,7 +33,14 @@
         </a-button>
       </a-form-item>
     </a-form>
-
+    <img
+      src="https://static.thenounproject.com/png/198234-200.png"
+      alt=""
+      sizes=""
+      srcset=""
+      style="float: right; padding-right: 10%"
+    />
+  </div>
 </template>
 
 <script>

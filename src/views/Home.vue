@@ -10,6 +10,7 @@
       <h1>Weather : {{ weatherByCity.weather[0].description }}</h1>
       <h1>Temp : {{ weatherByCity.main.temp }}</h1>
     </div>
+    <img src="https://cdn2.iconfinder.com/data/icons/crystalproject/crystal_project_256x256/apps/kweather.png" alt="" sizes="" srcset="">
   </div>
 </template>
 
