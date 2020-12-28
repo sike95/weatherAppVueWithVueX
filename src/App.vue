@@ -3,21 +3,9 @@
     <div v-if="authenticated">
       <h1>Welcome to our weather app !</h1>
       <hr />
-      <router-link to="/home" class="btn btn-success">
-        <a>Home</a>
-      </router-link>
-      <router-link to="/search" class="btn btn-success">
-        <a>Search</a>
-      </router-link>
-      <hr />
-      <div id="nav"></div>
-      <router-link
-        v-if="authenticated"
-        to="/login"
-        v-on:click.native="logout()"
-        replace
-        >Logout</router-link
-      >
+      <Navbar></Navbar>
+      <br/>
+      <br/>
     </div>
     <router-view @authenticated="setAuthenticated" />
     <!-- <router-view></router-view> -->
@@ -25,8 +13,12 @@
 </template>
 
 <script>
+import Navbar from './components/Navbar'
 export default {
   name: 'App',
+  components: {
+    Navbar
+  },
   data () {
     return {
       authenticated: false,

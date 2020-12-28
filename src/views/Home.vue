@@ -1,10 +1,10 @@
 <template>
   <div id="secure" class="container">
-    <NotificationPopUp
+    <div class="infomation">
+          <NotificationPopUp
       ref="NotificationPopUp"
       v-bind:modalData="modalData"
     ></NotificationPopUp>
-    <div class="infomation">
       <h1>City : {{ weatherByCity.name }}</h1>
       <h1>Weather : {{ weatherByCity.weather[0].description }}</h1>
       <h1>Temp : {{ weatherByCity.main.temp }}</h1>
@@ -37,9 +37,8 @@ export default {
     if (this.weatherByCity.main.feels_like === '') {
       this.modalData.title = 'hello'
       this.modalData.content = 'world'
-      this.$refs.NotificationPopUp.showModal()
 
-      this.$router.push('/search')
+      // this.$router.push('/search')
     }
   }
 }
