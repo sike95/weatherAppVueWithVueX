@@ -1,16 +1,17 @@
-<template>
-  <div id="secure" class="container">
-    <div class="infomation">
-          <NotificationPopUp
+<template >
+  <div id="secure" class="container" >
+              <NotificationPopUp
       ref="NotificationPopUp"
       @onClosed="onModalClosed"
       v-bind:modalData="modalData"
     ></NotificationPopUp>
+    <div class="infomation" v-if="weatherByCity.name">
+
       <h1>City : {{ weatherByCity.name }}</h1>
       <h1>Weather : {{ weatherByCity.weather[0].description }}</h1>
       <h1>Temp : {{ weatherByCity.main.temp }}</h1>
+      <img  src="https://cdn2.iconfinder.com/data/icons/crystalproject/crystal_project_256x256/apps/kweather.png" alt="" sizes="" srcset="">
     </div>
-    <img src="https://cdn2.iconfinder.com/data/icons/crystalproject/crystal_project_256x256/apps/kweather.png" alt="" sizes="" srcset="">
   </div>
 </template>
 
