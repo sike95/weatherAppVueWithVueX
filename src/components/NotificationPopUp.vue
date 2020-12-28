@@ -1,10 +1,7 @@
 <template>
   <div>
-    <a-modal v-model="visible" title="Basic Modal" @ok="handleOk">
-      <p>Some contents...</p>
-      <p>Some contents...</p>
-      <p>Some contents...</p>
-      {{visible}}
+    <a-modal v-model="visible" v-bind:title="modalData.title" @ok="handleOk" @cancel="handleCancel">
+    {{ modalData.content }}
     </a-modal>
   </div>
 </template>
@@ -24,8 +21,11 @@ export default {
       this.visible = true
     },
     handleOk (e) {
-      console.log(e)
+      this.$emit('onClosed', true)
       this.visible = false
+    },
+    handleCancel () {
+      this.$emit('onClosed', true)
     }
   }
 }

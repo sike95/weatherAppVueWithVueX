@@ -3,6 +3,7 @@
     <div class="infomation">
           <NotificationPopUp
       ref="NotificationPopUp"
+      @onClosed="onModalClosed"
       v-bind:modalData="modalData"
     ></NotificationPopUp>
       <h1>City : {{ weatherByCity.name }}</h1>
@@ -35,10 +36,14 @@ export default {
   },
   mounted () {
     if (this.weatherByCity.main.feels_like === '') {
-      this.modalData.title = 'hello'
-      this.modalData.content = 'world'
-
-      // this.$router.push('/search')
+      this.modalData.title = 'Unknown City:'
+      this.modalData.content = 'Please Enter a valid city and country code.'
+      this.$refs.NotificationPopUp.showModal()
+    }
+  },
+  methods: {
+    onModalClosed ($event) {
+      this.$router.push('/search')
     }
   }
 }
