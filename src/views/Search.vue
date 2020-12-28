@@ -65,7 +65,10 @@ export default {
             this.$router.push('/home')
           })
           .catch(error => {
-            alert('City not found please try again ')
+            this.$error({
+              title: 'Invalid country/city combination',
+              content: 'Error trying to fetch weather please try again!'
+            })
             console.log(error)
           })
       }
